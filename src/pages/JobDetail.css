@@ -1,0 +1,277 @@
+.job-detail-page {
+  min-height: calc(100vh - 200px);
+  background: #F3F3F2;
+  padding: 2rem 0 4rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #002366;
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: #C5A059;
+}
+
+.job-detail-header {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.job-detail-icon {
+  font-size: 5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.job-detail-info {
+  flex: 1;
+}
+
+.job-detail-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.job-category-badge {
+  background: #F3F3F2;
+  color: #002366;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.job-detail-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #002366;
+  margin: 0 0 1rem 0;
+}
+
+.job-detail-description {
+  font-size: 1.125rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.job-detail-content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+}
+
+.job-detail-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.detail-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.section-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #002366;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-heading-icon {
+  color: #C5A059;
+  width: 24px;
+  height: 24px;
+}
+
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.requirement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.requirement-icon {
+  color: #22c55e;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.process-step {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #002366 0%, #003d99 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-content h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #002366;
+  margin: 0 0 0.5rem 0;
+}
+
+.step-content p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.job-detail-sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.application-box {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 35, 102, 0.1);
+  border: 2px solid #C5A059;
+}
+
+.application-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #002366;
+  margin: 0 0 1rem 0;
+}
+
+.application-description {
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+.form-container {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+}
+
+.google-form {
+  width: 100%;
+  min-height: 600px;
+  border: none;
+}
+
+.unavailable-message {
+  background: white;
+  border-radius: 16px;
+  padding: 4rem 2rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.unavailable-icon {
+  color: #ef4444;
+  margin: 0 auto 1.5rem;
+}
+
+.unavailable-message h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #002366;
+  margin: 0 0 1rem 0;
+}
+
+.unavailable-message p {
+  font-size: 1.125rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 968px) {
+  .job-detail-content {
+    grid-template-columns: 1fr;
+  }
+
+  .job-detail-sidebar {
+    position: static;
+  }
+
+  .job-detail-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .job-detail-meta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .job-detail-title {
+    font-size: 2rem;
+  }
+
+  .job-detail-header {
+    padding: 1.5rem;
+  }
+
+  .detail-section,
+  .application-box {
+    padding: 1.5rem;
+  }
+
+  .google-form {
+    min-height: 500px;
+  }
+}
