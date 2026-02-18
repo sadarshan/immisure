@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { ArrowLeft, CheckCircle, XCircle, Calendar, MapPin, Users, FileText } from 'lucide-react'
+import { ArrowLeft, CheckCircle, XCircle, Calendar, FileText } from 'lucide-react'
 import { getJobById } from '../data/jobs'
 import './JobDetail.css'
 
