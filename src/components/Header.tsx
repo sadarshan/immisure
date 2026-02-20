@@ -25,13 +25,19 @@ const Header = () => {
           >
             Home
           </Link>
-          <Link 
-            to="/jobs" 
-            className={`nav-link ${isActive('/jobs') ? 'active' : ''}`}
-            onClick={() => setIsMenuOpen(false)}
+          <a 
+            href="/#countries" 
+            className={`nav-link ${location.pathname.startsWith('/countries') ? 'active' : ''}`}
+            onClick={(e) => {
+              setIsMenuOpen(false)
+              if (location.pathname === '/') {
+                e.preventDefault()
+                document.getElementById('countries')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }
+            }}
           >
-            Available Jobs
-          </Link>
+            Countries
+          </a>
         </nav>
 
         <button 

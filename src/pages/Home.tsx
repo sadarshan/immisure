@@ -1,8 +1,16 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Clock, Shield, Users } from 'lucide-react'
+import { countries } from '../data/countries'
 import './Home.css'
 
 const Home = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash === '#countries') {
+      document.getElementById('countries')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [])
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -10,19 +18,13 @@ const Home = () => {
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">
-              Slovakia Work Permit
+              Work Permit Immigration
               <span className="highlight"> Made Simple</span>
             </h1>
             <p className="hero-subtitle">
-              Professional immigration consultancy services for Slovakia work permits.
-              On-time processing guaranteed for Factory, Warehouse, Agriculture, and more.
+              Professional immigration consultancy for work permits. On-time processing
+              for Factory, Warehouse, Agriculture, Hospitality, and more across multiple countries.
             </p>
-            <div className="hero-cta">
-              <Link to="/jobs" className="btn btn-primary">
-                View Available Jobs
-                <ArrowRight size={20} />
-              </Link>
-            </div>
           </div>
           <div className="hero-image">
             <div className="hero-illustration">
@@ -52,14 +54,14 @@ const Home = () => {
                 <Shield className="icon" />
               </div>
               <h3>Expert Guidance</h3>
-              <p>Professional consultants with years of experience in Slovakia immigration.</p>
+              <p>Professional consultants with experience in international work permit immigration.</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">
                 <CheckCircle className="icon" />
               </div>
               <h3>Verified Employers</h3>
-              <p>All job opportunities are from verified and trusted employers in Slovakia.</p>
+              <p>All job opportunities are from verified and trusted employers.</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">
@@ -72,37 +74,39 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Job Categories Section */}
-      <section className="categories">
+      {/* Countries Section */}
+      <section id="countries" className="countries-section">
         <div className="container">
-          <h2 className="section-title">Job Categories</h2>
-          <div className="categories-grid">
-            <div className="category-card">
-              <div className="category-icon">🏭</div>
-              <h3>Factory Workers</h3>
-              <p>Manufacturing positions with competitive wages</p>
-            </div>
-            <div className="category-card">
-              <div className="category-icon">📦</div>
-              <h3>Warehouse Workers</h3>
-              <p>Logistics and distribution opportunities</p>
-            </div>
-            <div className="category-card">
-              <div className="category-icon">🏠</div>
-              <h3>House Cleaners</h3>
-              <p>Domestic service positions</p>
-            </div>
-            <div className="category-card">
-              <div className="category-icon">🌾</div>
-              <h3>Agriculture</h3>
-              <p>Farming and agricultural work</p>
-            </div>
-          </div>
-          <div className="categories-cta">
-            <Link to="/jobs" className="btn btn-secondary">
-              Explore All Jobs
-              <ArrowRight size={20} />
-            </Link>
+          <h2 className="section-title">Choose your dream work and destination</h2>
+          <div className="countries-grid">
+            {countries.map((country) => (
+              <Link
+                key={country.id}
+                to={`/countries/${country.slug}#available`}
+                className="country-card"
+              >
+                <div className="country-card-image-wrap">
+                  <img
+                    src={country.image}
+                    alt={country.name}
+                    className="country-card-image"
+                    loading="lazy"
+                    decoding="async"
+                    width={480}
+                    height={300}
+                  />
+                  <div className="country-card-overlay" />
+                </div>
+                <div className="country-card-content">
+                  <h3 className="country-card-title">{country.name}</h3>
+                  <p className="country-card-description">{country.description}</p>
+                  <span className="country-card-link">
+                    View jobs
+                    <ArrowRight size={18} />
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -113,8 +117,8 @@ const Home = () => {
           <div className="cta-content">
             <h2>Ready to Start Your Journey?</h2>
             <p>Check available work and apply today</p>
-            <Link to="/jobs" className="btn btn-primary btn-large">
-              View Available Jobs
+            <Link to="/countries/slovakia" className="btn btn-primary btn-large">
+              Explore Countries
               <ArrowRight size={24} />
             </Link>
           </div>

@@ -197,53 +197,106 @@
   margin: 0;
 }
 
-/* Categories Section */
-.categories {
+/* Countries Section */
+.countries-section {
   padding: 5rem 0;
   background: transparent;
 }
 
-.categories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1.125rem;
+  margin: -1.5rem auto 2.5rem;
+  max-width: 560px;
 }
 
-.category-card {
-  background: linear-gradient(135deg, #F3F3F2 0%, white 100%);
-  padding: 2.5rem 2rem;
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.country-card {
+  background: white;
   border-radius: 12px;
-  text-align: center;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border: 2px solid transparent;
   transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
-.category-card:hover {
+.country-card:hover {
   border-color: #C5A059;
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 35, 102, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 35, 102, 0.15);
 }
 
-.category-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
+.country-card-image-wrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
 }
 
-.category-card h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
+.country-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.country-card:hover .country-card-image {
+  transform: scale(1.06);
+}
+
+.country-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 35, 102, 0.6) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.country-card-content {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.country-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
   color: #002366;
-  margin: 0 0 0.75rem 0;
-}
-
-.category-card p {
-  color: #666;
   margin: 0;
 }
 
-.categories-cta {
-  text-align: center;
+.country-card-description {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.45;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.country-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #C5A059;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.country-card:hover .country-card-link {
+  color: #002366;
 }
 
 /* CTA Section */
@@ -363,8 +416,11 @@
     font-size: 2rem;
   }
 
-  .features-grid,
-  .categories-grid {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .countries-grid {
     grid-template-columns: 1fr;
   }
 }

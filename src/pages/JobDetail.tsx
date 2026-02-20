@@ -1,22 +1,23 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { ArrowLeft, CheckCircle, XCircle, Calendar, FileText } from 'lucide-react'
-import { getJobById } from '../data/jobs'
+import { getCountryBySlug, getJobByCountryAndId } from '../data/countries'
 import './JobDetail.css'
 
 const JobDetail = () => {
-  const { id } = useParams<{ id: string }>()
-  const job = id ? getJobById(id) : undefined
+  const { countrySlug, jobId } = useParams<{ countrySlug: string; jobId: string }>()
+  const country = countrySlug ? getCountryBySlug(countrySlug) : undefined
+  const job = countrySlug && jobId ? getJobByCountryAndId(countrySlug, jobId) : undefined
 
-  if (!job) {
-    return <Navigate to="/jobs" replace />
+  if (!country || !job) {
+    return <Navigate to="/" replace />
   }
 
   return (
     <div className="job-detail-page">
       <div className="container">
-        <Link to="/jobs" className="back-link">
+        <Link to={`/countries/${country.slug}`} className="back-link">
           <ArrowLeft size={20} />
-          Back to Jobs
+          Back to {country.name} jobs
         </Link>
 
         <div className="job-detail-header">
@@ -24,6 +25,7 @@ const JobDetail = () => {
           <div className="job-detail-info">
             <div className="job-detail-meta">
               <span className="job-category-badge">{job.category}</span>
+              <span className="job-country-badge">{country.name}</span>
               {job.available ? (
                 <span className="badge badge-available">
                   <CheckCircle size={16} />
@@ -38,6 +40,25 @@ const JobDetail = () => {
             </div>
             <h1 className="job-detail-title">{job.title}</h1>
             <p className="job-detail-description">{job.description}</p>
+            <div className="job-detail-summary">
+              <div className="job-detail-summary-row">
+                <span className="job-detail-summary-label">Contract:</span>
+                <span className="job-detail-summary-value">{job.contractDuration}</span>
+              </div>
+              <div className="job-detail-summary-row">
+                <span className="job-detail-summary-label">Hours/day:</span>
+                <span className="job-detail-summary-value">{job.workHoursPerDay}</span>
+              </div>
+              <div className="job-detail-summary-row">
+                <span className="job-detail-summary-label">Wage:</span>
+                <span className="job-detail-summary-value">{job.currency} {job.wagePerMonth.toLocaleString()}/month</span>
+              </div>
+              {job.note && (
+                <p className="job-detail-note">
+                  Note: {job.note}
+                </p>
+              )}
+            </div>
           </div>
         </div>
 
@@ -102,7 +123,7 @@ const JobDetail = () => {
                 <div className="application-box">
                   <h3 className="application-title">Apply Now</h3>
                   <p className="application-description">
-                    Fill out the form below to start your Slovakia work permit application.
+                    Fill out the form below to start your {country.name} work permit application.
                     Our team will contact you within 24 hours.
                   </p>
                   <div className="form-container">
@@ -113,7 +134,7 @@ const JobDetail = () => {
                       frameBorder="0"
                       marginHeight={0}
                       marginWidth={0}
-                      title={`Application form for ${job.title}`}
+                      title={`Application form for ${job.title} - ${country.name}`}
                       className="google-form"
                     >
                       Loading…
@@ -129,10 +150,10 @@ const JobDetail = () => {
             <h2>This Position is Currently Unavailable</h2>
             <p>
               This job position is currently filled. Please check back later for new openings,
-              or explore other available positions.
+              or explore other available positions in {country.name}.
             </p>
-            <Link to="/jobs" className="btn btn-primary">
-              View Other Jobs
+            <Link to={`/countries/${country.slug}`} className="btn btn-primary">
+              View Other Jobs in {country.name}
             </Link>
           </div>
         )}

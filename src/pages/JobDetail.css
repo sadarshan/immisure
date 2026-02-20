@@ -59,6 +59,15 @@
   letter-spacing: 0.5px;
 }
 
+.job-country-badge {
+  background: rgba(197, 160, 89, 0.2);
+  color: #002366;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
 .job-detail-title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -70,7 +79,46 @@
   font-size: 1.125rem;
   color: #666;
   line-height: 1.6;
-  margin: 0;
+  margin: 0 0 1rem 0;
+}
+
+.job-detail-summary {
+  background: #F3F3F2;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.job-detail-summary-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.job-detail-summary-row:last-of-type {
+  margin-bottom: 0;
+}
+
+.job-detail-summary-label {
+  color: #6b7280;
+  font-weight: 600;
+  min-width: 6rem;
+}
+
+.job-detail-summary-value {
+  color: #111827;
+  font-weight: 500;
+}
+
+.job-detail-note {
+  margin: 0.75rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #e5e5e5;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-style: italic;
+  line-height: 1.4;
 }
 
 .job-detail-content {
