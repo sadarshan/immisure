@@ -16,7 +16,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h3 className="footer-title">Immisure</h3>
+          <img src="/immisure-logo.png" alt="Immisure" className="footer-logo" />
           <p className="footer-description">
             Your trusted partner for work permit immigration across multiple countries.
             We ensure on-time visa processing with professional guidance.

@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Clock, Shield, Users } from 'lucide-react'
 import { countries } from '../data/countries'
+import WorldMap from '../components/WorldMap'
 import './Home.css'
 
 const Home = () => {
@@ -27,12 +28,7 @@ const Home = () => {
             </p>
           </div>
           <div className="hero-image">
-            <div className="hero-illustration">
-              <div className="illustration-circle circle-1"></div>
-              <div className="illustration-circle circle-2"></div>
-              <div className="illustration-circle circle-3"></div>
-              <div className="illustration-icon">✈️</div>
-            </div>
+            <WorldMap />
           </div>
         </div>
       </section>

@@ -1,7 +1,8 @@
 .footer {
-  background: #002366;
-  color: #F3F3F2;
+  background: #F5F4F0;
+  color: #002366;
   margin-top: 4rem;
+  border-top: 1px solid rgba(0, 35, 102, 0.08);
 }
 
 .footer-container {
@@ -19,6 +20,14 @@
   gap: 1rem;
 }
 
+.footer-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+}
+
 .footer-title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -27,7 +36,7 @@
 }
 
 .footer-description {
-  color: rgba(243, 243, 242, 0.8);
+  color: #4b5563;
   line-height: 1.6;
   margin: 0;
 }
@@ -36,7 +45,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0;
-  color: #C5A059;
+  color: #002366;
 }
 
 .footer-links {
@@ -49,7 +58,7 @@
 }
 
 .footer-links a {
-  color: rgba(243, 243, 242, 0.8);
+  color: #4b5563;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -71,7 +80,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: rgba(243, 243, 242, 0.8);
+  color: #4b5563;
 }
 
 .footer-contact svg {
@@ -80,10 +89,10 @@
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(243, 243, 242, 0.1);
+  border-top: 1px solid rgba(0, 35, 102, 0.1);
   padding: 1.5rem 2rem;
   text-align: center;
-  color: rgba(243, 243, 242, 0.6);
+  color: #6b7280;
 }
 
 @media (max-width: 768px) {

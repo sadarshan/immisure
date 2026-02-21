@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, FileText } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import './Header.css'
 
@@ -13,8 +13,7 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="logo">
-          <FileText className="logo-icon" />
-          <span className="logo-text">Immisure</span>
+          <img src="/immisure-logo.png" alt="Immisure" className="logo-img" />
         </Link>
         
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
