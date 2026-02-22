@@ -3,10 +3,15 @@
   background: linear-gradient(
     180deg,
     #002366 0%,
-    #003d99 18%,
-    #F3F3F2 48%,
-    #ffffff 70%,
-    #F3F3F2 82%,
+    #002d7a 12%,
+    #003d99 25%,
+    #2a5a9e 38%,
+    #6b8cba 50%,
+    #b8c9dc 62%,
+    #e8ecf1 72%,
+    #F3F3F2 80%,
+    #e8ecf1 88%,
+    #6b8cba 95%,
     #003d99 100%
   );
 }
@@ -73,10 +78,18 @@
   align-items: center;
 }
 
-/* Features Section */
+/* Features Section – fade in/out so no hard edge with page gradient */
 .features {
   padding: 5rem 0;
-  background: transparent;
+  background: linear-gradient(
+    180deg,
+    rgba(232, 236, 241, 0) 0%,
+    rgba(243, 243, 242, 0.4) 8%,
+    #F3F3F2 20%,
+    #F3F3F2 80%,
+    rgba(243, 243, 242, 0.4) 92%,
+    rgba(232, 236, 241, 0) 100%
+  );
 }
 
 .container {
@@ -88,7 +101,7 @@
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #002366;
+  color: #001a4d;
   text-align: center;
   margin: 0 0 3rem 0;
 }
@@ -143,7 +156,7 @@
   margin: 0;
 }
 
-/* Countries Section */
+/* Countries Section – transparent, inherits smooth gradient */
 .countries-section {
   padding: 5rem 0;
   background: transparent;
@@ -245,7 +258,7 @@
   color: #002366;
 }
 
-/* CTA Section */
+/* CTA Section – sits on gradient; no solid block */
 .cta-section {
   padding: 5rem 0;
   background: transparent;

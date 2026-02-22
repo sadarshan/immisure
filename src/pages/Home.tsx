@@ -113,7 +113,17 @@ const Home = () => {
           <div className="cta-content">
             <h2>Ready to Start Your Journey?</h2>
             <p>Check available work and apply today</p>
-            <Link to="/countries/slovakia" className="btn btn-primary btn-large">
+            <Link
+              to="/#countries"
+              className="btn btn-primary btn-large"
+              onClick={(e) => {
+                if (window.location.pathname === '/') {
+                  e.preventDefault()
+                  document.getElementById('countries')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  window.history.replaceState(null, '', '/#countries')
+                }
+              }}
+            >
               Explore Countries
               <ArrowRight size={24} />
             </Link>
