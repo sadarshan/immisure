@@ -37,6 +37,13 @@ const Header = () => {
           >
             Countries
           </a>
+          <Link 
+            to="/contact" 
+            className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Contact
+          </Link>
         </nav>
 
         <button 

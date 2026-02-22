@@ -28,6 +28,7 @@ const Footer = () => {
           <ul className="footer-links">
             <li><Link to="/">Home</Link></li>
             <li><a href="/#countries" onClick={handleCountriesClick}>Countries</a></li>
+            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
 
@@ -44,7 +45,7 @@ const Footer = () => {
             </li>
             <li>
               <MapPin size={18} />
-              <span>Slovakia</span>
+              <span>1st Floor Sheenath Complex, Near Reliance Petrol Pump Bokhira, Porbandar- 360575</span>
             </li>
           </ul>
         </div>

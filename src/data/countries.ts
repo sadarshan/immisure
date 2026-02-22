@@ -162,8 +162,8 @@ const IMAGES = {
   poland: 'https://picsum.photos/seed/poland-krakow/480/300',
   greece: 'https://picsum.photos/seed/greece-santorini/480/300',
   albania: 'https://picsum.photos/seed/albania/480/300',
-  kyrgyzstan: 'https://picsum.photos/seed/kyrgyzstan/480/300',
-  russia: 'https://picsum.photos/seed/russia/480/300',
+  kyrgyzstan: 'https://picsum.photos/seed/kyrgyzstan-landscape/480/300',
+  russia: 'https://images.unsplash.com/photo-1547448415-e9f5b28e570d?w=480&q=65&fit=crop',
   belarus: 'https://picsum.photos/seed/belarus/480/300',
   slovenia: 'https://picsum.photos/seed/slovenia-bled/480/300'
 }
