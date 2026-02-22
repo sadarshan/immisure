@@ -36,11 +36,11 @@ const Footer = () => {
           <ul className="footer-contact">
             <li>
               <Phone size={18} />
-              <span>+421 XXX XXX XXX</span>
+              <span>+917048222509</span>
             </li>
             <li>
               <Mail size={18} />
-              <span>info@immisure.com</span>
+              <span>support@immisure.in</span>
             </li>
             <li>
               <MapPin size={18} />
