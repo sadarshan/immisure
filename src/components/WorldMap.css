@@ -8,6 +8,21 @@
   background: rgba(0, 35, 102, 0.06);
 }
 
+.world-map-loading,
+.world-map-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 35, 102, 0.7);
+  font-size: 0.9rem;
+}
+
+.world-map-error p {
+  margin: 0;
+  text-align: center;
+  padding: 1rem;
+}
+
 .world-map-svg {
   width: 100%;
   height: 100%;
