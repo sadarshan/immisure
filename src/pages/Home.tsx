@@ -36,36 +36,54 @@ const Home = () => {
       {/* Features Section */}
       <section className="features">
         <div className="container">
-          <h2 className="section-title">Why Choose Immisure?</h2>
+          <div className="features-header">
+            <p className="features-label">What we deliver</p>
+            <h2 className="features-title">Why Choose Immisure?</h2>
+            <p className="features-subtitle">
+              We combine speed, expertise, and trust so your move abroad is smooth and secure.
+            </p>
+          </div>
           <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Clock className="icon" />
+            <article className="feature-card">
+              <span className="feature-card-accent" aria-hidden />
+              <div className="feature-icon-wrap">
+                <Clock className="feature-icon" aria-hidden />
               </div>
-              <h3>On-Time Processing</h3>
-              <p>We guarantee timely visa processing with efficient documentation handling.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Shield className="icon" />
+              <h3 className="feature-card-title">On-Time Processing</h3>
+              <p className="feature-card-desc">
+                Timely visa processing with efficient documentation handling—no unnecessary delays.
+              </p>
+            </article>
+            <article className="feature-card">
+              <span className="feature-card-accent" aria-hidden />
+              <div className="feature-icon-wrap">
+                <Shield className="feature-icon" aria-hidden />
               </div>
-              <h3>Expert Guidance</h3>
-              <p>Professional consultants with experience in international work permit immigration.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">
-                <CheckCircle className="icon" />
+              <h3 className="feature-card-title">Expert Guidance</h3>
+              <p className="feature-card-desc">
+                Professional consultants with deep experience in international work permit immigration.
+              </p>
+            </article>
+            <article className="feature-card">
+              <span className="feature-card-accent" aria-hidden />
+              <div className="feature-icon-wrap">
+                <CheckCircle className="feature-icon" aria-hidden />
               </div>
-              <h3>Verified Employers</h3>
-              <p>All job opportunities are from verified and trusted employers.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Users className="icon" />
+              <h3 className="feature-card-title">Verified Employers</h3>
+              <p className="feature-card-desc">
+                Every opportunity comes from verified, trusted employers—quality and reliability first.
+              </p>
+            </article>
+            <article className="feature-card">
+              <span className="feature-card-accent" aria-hidden />
+              <div className="feature-icon-wrap">
+                <Users className="feature-icon" aria-hidden />
               </div>
-              <h3>End-to-End Support</h3>
-              <p>Complete assistance from application to visa approval and relocation.</p>
-            </div>
+              <h3 className="feature-card-title">End-to-End Support</h3>
+              <p className="feature-card-desc">
+                Full assistance from application and visa approval through to relocation and settling in.
+              </p>
+            </article>
           </div>
         </div>
       </section>

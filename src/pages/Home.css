@@ -1,19 +1,65 @@
 .home {
   min-height: calc(100vh - 200px);
+  position: relative;
+  overflow: hidden;
+  /* Blue to light blue only (no white); header/footer keep their own light bg */
   background: linear-gradient(
     180deg,
     #002366 0%,
-    #002d7a 12%,
+    #002366 10%,
     #003d99 25%,
-    #2a5a9e 38%,
-    #6b8cba 50%,
-    #b8c9dc 62%,
-    #e8ecf1 72%,
-    #F3F3F2 80%,
-    #e8ecf1 88%,
-    #6b8cba 95%,
-    #003d99 100%
+    #1e5094 40%,
+    #4a7ab5 55%,
+    #6b8cba 70%,
+    #8ba9d4 82%,
+    #9eb8dc 92%,
+    #8ba9d4 100%
   );
+}
+
+/* Square grid overlay */
+.home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background-color: transparent;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+/* Animated gradient layer – slow drift */
+.home::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 35, 102, 0.08) 20%,
+    rgba(197, 160, 89, 0.05) 50%,
+    rgba(0, 61, 153, 0.06) 80%,
+    transparent 100%
+  );
+  background-size: 100% 300%;
+  background-position: 0 0%;
+  animation: home-bg-drift 18s ease-in-out infinite;
+}
+
+@keyframes home-bg-drift {
+  0%, 100% { background-position: 0 0%; }
+  50% { background-position: 0 100%; }
+}
+
+.home > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Hero Section */
@@ -78,18 +124,10 @@
   align-items: center;
 }
 
-/* Features Section – fade in/out so no hard edge with page gradient */
+/* Features Section – no white; sits on blue gradient */
 .features {
   padding: 5rem 0;
-  background: linear-gradient(
-    180deg,
-    rgba(232, 236, 241, 0) 0%,
-    rgba(243, 243, 242, 0.4) 8%,
-    #F3F3F2 20%,
-    #F3F3F2 80%,
-    rgba(243, 243, 242, 0.4) 92%,
-    rgba(232, 236, 241, 0) 100%
-  );
+  background: transparent;
 }
 
 .container {
@@ -106,60 +144,132 @@
   margin: 0 0 3rem 0;
 }
 
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.feature-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
+/* Features – header */
+.features-header {
   text-align: center;
+  max-width: 640px;
+  margin: 0 auto 3.5rem;
 }
 
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 35, 102, 0.1);
-}
-
-.feature-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 1.5rem;
-  background: linear-gradient(135deg, #002366 0%, #003d99 100%);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.feature-icon .icon {
-  color: #C5A059;
-  width: 32px;
-  height: 32px;
-}
-
-.feature-card h3 {
-  font-size: 1.25rem;
+.features-label {
+  font-size: 0.8125rem;
   font-weight: 600;
-  color: #002366;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C5A059;
   margin: 0 0 0.75rem 0;
 }
 
-.feature-card p {
-  color: #666;
+.features-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+.features-subtitle {
+  font-size: 1.125rem;
   line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
   margin: 0;
 }
 
-/* Countries Section – transparent, inherits smooth gradient */
+/* Features – bento-style grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-card {
+  position: relative;
+  background: #fff;
+  padding: 2rem 1.75rem;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 35, 102, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  text-align: left;
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  border-color: rgba(197, 160, 89, 0.35);
+  box-shadow: 0 12px 32px rgba(0, 35, 102, 0.08);
+  transform: translateY(-2px);
+}
+
+.feature-card-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #C5A059 0%, #002366 100%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.feature-card:hover .feature-card-accent {
+  opacity: 1;
+}
+
+.feature-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(0, 35, 102, 0.06) 0%, rgba(0, 61, 153, 0.04) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.feature-icon {
+  color: #002366;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.feature-card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #001a4d;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.feature-card-desc {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #5a5d6b;
+  margin: 0;
+}
+
+/* Countries Section – transparent, on blue gradient; title/subtitle light */
 .countries-section {
   padding: 5rem 0;
   background: transparent;
+}
+
+.countries-section .section-title {
+  color: #fff;
+}
+
+.countries-section .section-subtitle {
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .section-subtitle {
@@ -258,10 +368,16 @@
   color: #002366;
 }
 
-/* CTA Section – sits on gradient; no solid block */
+/* CTA Section – dark background so light text is always visible */
 .cta-section {
   padding: 5rem 0;
-  background: transparent;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 35, 102, 0.3) 0%,
+    #002366 15%,
+    #003d99 85%,
+    rgba(0, 61, 153, 0.3) 100%
+  );
   color: #F3F3F2;
 }
 
@@ -273,12 +389,13 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin: 0 0 1rem 0;
+  color: #fff;
 }
 
 .cta-content p {
   font-size: 1.25rem;
   margin: 0 0 2rem 0;
-  color: rgba(243, 243, 242, 0.9);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Buttons */
